@@ -24,4 +24,14 @@ notes.post('/', (req,res) => {
     res.sendStatus(200);
 });
 
+notes.delete("/:id", (req, res) => {
+    for(let i = 0; i < notesArray.length; i++) {
+        if(notesArray[i].id == req.params.id) {
+            notesArray.splice(i, 1);
+            break;
+        }
+    }
+    res.sendStatus(200);
+});
+
 module.exports = notes;
