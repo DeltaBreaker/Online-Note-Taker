@@ -8,6 +8,10 @@ for(const i of noteDB) {
     notesArray.push(i);
 }
 
+notes.get('/', (req,res) => {
+    res.send(JSON.stringify(notesArray));
+});
+
 notes.post('/', (req,res) => {
     notesArray.push({
         id: uuid.v4(),
